@@ -6,6 +6,10 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+// Validación de entrada desde el menú principal
+    if (request.getParameter("menu") != null){
+%>
 <footer class="footer">
     <div class="content has-text-centered">
         <p>
@@ -13,3 +17,8 @@
         </p>
     </div>
 </footer>
+<% }else {
+// Cargando la Página de errores
+    String redirectURL = "../index.jsp?menu=401";
+    response.sendRedirect(redirectURL);
+}%>

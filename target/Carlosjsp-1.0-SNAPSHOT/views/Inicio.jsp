@@ -6,6 +6,10 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+// Validación de entrada desde el menú principal
+    if (request.getParameter("menu") != null){
+%>
 <div class="columns">
     <div class="column is-narrow">
         <div class="box" style="width: 200px;">
@@ -31,3 +35,8 @@
         </div>
     </div>
 </div>
+<% }else {
+// Cargando la Página de errores
+    String redirectURL = "../index.jsp?menu=401";
+    response.sendRedirect(redirectURL);
+}%>
